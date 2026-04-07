@@ -111,11 +111,11 @@ display:flex;align-items:center;justify-content:space-between}
 
 <script>
 /* ═══════════════════════════════════════════════════════════════
-   CLIENT CONFIG — update these two lines for each engagement
+   CLIENT CONFIG — update these two lines for each engagement
 ═══════════════════════════════════════════════════════════════ */
-var CLIENT_NAME = "Mobile Carrier";      // replace with actual client name
-var CLIENT_LOGO = "📡";                  // replace with logo <img> tag or emoji
-var ENGAGEMENT  = "Testing COE Assessment · Confidential";
+var CLIENT_NAME = "Mobile Carrier";      // replace with actual client name
+var CLIENT_LOGO = "📡";                  // replace with logo <img> tag or emoji
+var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 /* ════════════════════════════════════════════════════════════ */
 </script>
 
@@ -123,74 +123,74 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 <body>
 
 <div class="client-hdr" id="client-hdr">
-  <div class="client-hdr-left">
-    <div class="client-logo-wrap" id="hdr-logo"></div>
-    <div>
-      <div class="client-name" id="hdr-name"></div>
-      <div class="client-eng" id="hdr-eng"></div>
-    </div>
-  </div>
-  <div class="client-hdr-right">🔒 Confidential &middot; Responses anonymised</div>
+  <div class="client-hdr-left">
+    <div class="client-logo-wrap" id="hdr-logo"></div>
+    <div>
+      <div class="client-name" id="hdr-name"></div>
+      <div class="client-eng" id="hdr-eng"></div>
+    </div>
+  </div>
+  <div class="client-hdr-right">🔒 Confidential &middot; Responses anonymised</div>
 </div>
 
 <!-- LANDING -->
 
 <div id="screen-landing" class="screen visible">
 <div id="landing-header">
-  <div class="ll">
-    <div class="ll-icon">🧪</div>
-    <div><div class="ll-t">Testing Assessment Survey</div><div class="ll-s">Sample Demo &middot; Kickoff Session</div></div>
-  </div>
-  <div class="landing-conf">🔒 Confidential &middot; Responses anonymised</div>
+  <div class="ll">
+    <div class="ll-icon">🧪</div>
+    <div><div class="ll-t">Testing Assessment Survey</div><div class="ll-s">Sample Demo &middot; Kickoff Session</div></div>
+  </div>
+  <div class="landing-conf">🔒 Confidential &middot; Responses anonymised</div>
 </div>
 <div id="landing-body">
-  <div class="chip">SELECT YOUR ROLE TO BEGIN</div>
-  <h1 class="lh1">Select Your Role to Begin</h1>
-  <p class="lsub">Each role has a tailored set of questions aligned to your perspective. Please select the role that best represents your responsibilities.</p>
-  <div class="pgrid">
-    <div class="pcard" style="--c:#5C2D91" onclick="openForm('f1')">
-      <div class="pt" style="background:#5C2D91"><span class="pi">👔</span><span class="pb">10 Q &middot; 8&ndash;10 min</span></div>
-      <div class="pbo"><div class="ptitle">Senior Executives</div><div class="proles">Testing Leaders &middot; Senior Directors &middot; Sponsors</div><div class="pdesc">Strategic questions only — priorities, confidence, vendor view and what you want testing to look like in 18 months. No technical questions.</div><div class="pcta">Select this role &rarr;</div></div>
-    </div>
-    <div class="pcard" style="--c:#8B2645" onclick="openForm('f2')">
-      <div class="pt" style="background:#8B2645"><span class="pi">🧪</span><span class="pb">~40 Q &middot; 25&ndash;30 min</span></div>
-      <div class="pbo"><div class="ptitle">Testing Leaders</div><div class="proles">Head of Testing &middot; Test Managers &middot; COE Lead</div><div class="pdesc">Detailed form across all 13 assessment areas — org structure, defect backlog, test cases, automation, governance and more.</div><div class="pcta">Select this role &rarr;</div></div>
-    </div>
-    <div class="pcard" style="--c:#0078D4" onclick="openForm('f3')">
-      <div class="pt" style="background:#0078D4"><span class="pi">💻</span><span class="pb">15 Q &middot; 12&ndash;15 min</span></div>
-      <div class="pbo"><div class="ptitle">Engineering Team</div><div class="proles">Tech Leads &middot; Engineering Managers &middot; Dev Architects</div><div class="pdesc">How testing integrates with development, CI/CD quality gates, environment stability and where testing helps or slows you down.</div><div class="pcta">Select this role &rarr;</div></div>
-    </div>
-    <div class="pcard" style="--c:#107C41" onclick="openForm('f4')">
-      <div class="pt" style="background:#107C41"><span class="pi">📋</span><span class="pb">13 Q &middot; 10&ndash;12 min</span></div>
-      <div class="pbo"><div class="ptitle">Product Owners</div><div class="proles">Product Owners &middot; Business Analysts &middot; Delivery Managers</div><div class="pdesc">Acceptance criteria, test case relevance, go/no-go decisions and whether testing gives you enough confidence before releases.</div><div class="pcta">Select this role &rarr;</div></div>
-    </div>
-    <div class="pcard" style="--c:#C7680A" onclick="openForm('f5')">
-      <div class="pt" style="background:#C7680A"><span class="pi">⚙️</span><span class="pb">11 Q &middot; 8&ndash;10 min</span></div>
-      <div class="pbo"><div class="ptitle">Operations</div><div class="proles">Operations Managers &middot; Service Delivery &middot; NOC/SOC &middot; Release Managers</div><div class="pdesc">What reaches production, production incidents from testing gaps, pre-release visibility and whether testing is a reliable risk filter.</div><div class="pcta">Select this role &rarr;</div></div>
-    </div>
-  </div>
-  <p class="lnote">All responses are confidential and anonymised in reporting &middot; Testing Assessment Sample Demo</p>
+  <div class="chip">SELECT YOUR ROLE TO BEGIN</div>
+  <h1 class="lh1">Who are you in this assessment?</h1>
+  <p class="lsub">Each role has a tailored survey — different length, different questions. Select your role and you will go directly to your form.</p>
+  <div class="pgrid">
+    <div class="pcard" style="--c:#5C2D91" onclick="openForm('f1')">
+      <div class="pt" style="background:#5C2D91"><span class="pi">👔</span><span class="pb">10 Q &middot; 8&ndash;10 min</span></div>
+      <div class="pbo"><div class="ptitle">Senior Executives / VP</div><div class="proles">VP of Testing &middot; Senior Directors &middot; Sponsors</div><div class="pdesc">Strategic questions only — priorities, confidence, vendor view and what you want testing to look like in 18 months. No technical questions.</div><div class="pcta">Select this role &rarr;</div></div>
+    </div>
+    <div class="pcard" style="--c:#8B2645" onclick="openForm('f2')">
+      <div class="pt" style="background:#8B2645"><span class="pi">🧪</span><span class="pb">~40 Q &middot; 25&ndash;30 min</span></div>
+      <div class="pbo"><div class="ptitle">Testing Leaders</div><div class="proles">Head of Testing &middot; Test Managers &middot; COE Lead</div><div class="pdesc">Detailed form across all 13 assessment areas — org structure, defect backlog, test cases, automation, governance and more.</div><div class="pcta">Select this role &rarr;</div></div>
+    </div>
+    <div class="pcard" style="--c:#0078D4" onclick="openForm('f3')">
+      <div class="pt" style="background:#0078D4"><span class="pi">💻</span><span class="pb">15 Q &middot; 12&ndash;15 min</span></div>
+      <div class="pbo"><div class="ptitle">Engineering Team</div><div class="proles">Tech Leads &middot; Engineering Managers &middot; Dev Architects</div><div class="pdesc">How testing integrates with development, CI/CD quality gates, environment stability and where testing helps or slows you down.</div><div class="pcta">Select this role &rarr;</div></div>
+    </div>
+    <div class="pcard" style="--c:#107C41" onclick="openForm('f4')">
+      <div class="pt" style="background:#107C41"><span class="pi">📋</span><span class="pb">13 Q &middot; 10&ndash;12 min</span></div>
+      <div class="pbo"><div class="ptitle">Product Owners</div><div class="proles">Product Owners &middot; Business Analysts &middot; Delivery Managers</div><div class="pdesc">Acceptance criteria, test case relevance, go/no-go decisions and whether testing gives you enough confidence before releases.</div><div class="pcta">Select this role &rarr;</div></div>
+    </div>
+    <div class="pcard" style="--c:#C7680A" onclick="openForm('f5')">
+      <div class="pt" style="background:#C7680A"><span class="pi">⚙️</span><span class="pb">11 Q &middot; 8&ndash;10 min</span></div>
+      <div class="pbo"><div class="ptitle">Operations</div><div class="proles">Operations Managers &middot; Service Delivery &middot; NOC/SOC &middot; Release Managers</div><div class="pdesc">What reaches production, production incidents from testing gaps, pre-release visibility and whether testing is a reliable risk filter.</div><div class="pcta">Select this role &rarr;</div></div>
+    </div>
+  </div>
+  <p class="lnote">All responses are confidential and anonymised in reporting &middot; Testing Assessment Sample Demo</p>
 </div>
 </div>
 
-<!-- FORM 1 — SENIOR EXECUTIVES -->
+<!-- FORM 1 — SENIOR EXECUTIVES / VP -->
 
 <div id="screen-f1" class="screen" style="--fc:#5C2D91">
-<div class="ftopbar"><button class="backbtn" onclick="goBack()">&#8592; Change role</button><div class="ftrole" style="color:#5C2D91">👔 Senior Executives</div><div class="ftright">Testing Assessment Demo</div></div>
+<div class="ftopbar"><button class="backbtn" onclick="goBack()">&#8592; Change role</button><div class="ftrole" style="color:#5C2D91">👔 Senior Executives / VP</div><div class="ftright">Testing Assessment Demo</div></div>
 <div class="fstripe" style="background:#5C2D91"></div>
 
 <div class="prog-wrap">
-  <div class="prog-outer"><div class="prog-inner" id="f1-prog-bar" style="width:0%"></div></div>
-  <div class="prog-label">
-    <span class="done-txt" id="f1-done-txt">0 answered</span>
-    <span class="left-txt" id="f1-left-txt">Loading…</span>
-  </div>
+  <div class="prog-outer"><div class="prog-inner" id="f1-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f1-done-txt">0 answered</span>
+    <span class="left-txt" id="f1-left-txt">Loading…</span>
+  </div>
 </div>
 <div class="fwrap">
-<div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Executive &amp; Leadership Survey</div><div class="fdesc">Strategic assessment for senior leaders. 10 questions, 8&ndash;10 minutes. Your responses shape the transformation roadmap.</div><div class="fmeta"><span>👔 <strong>Executives, Senior Directors, Programme Sponsors</strong></span><span>⏱ <strong>8&ndash;10 minutes</strong></span><span>🔒 <strong>Confidential</strong></span></div></div>
+<div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Executive &amp; Leadership Survey</div><div class="fdesc">Strategic assessment for senior leaders. 10 questions, 8&ndash;10 minutes. Your responses shape the transformation roadmap.</div><div class="fmeta"><span>👔 <strong>VP, Senior Directors, Programme Sponsors</strong></span><span>⏱ <strong>8&ndash;10 minutes</strong></span><span>🔒 <strong>Confidential</strong></span></div></div>
 <div class="abar">✅ Your responses are anonymised. Individual answers are never attributed by name.</div>
 
-<div class="qcard"><div class="qnum">Question 1 of 10</div><div class="qtxt">What is the single most important priority for testing in the next 12 months? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Prevent production defects from reaching customers</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Reduce the overall cost of testing</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Increase release speed — testing should not be the bottleneck</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Establish governance, KPIs and leadership visibility</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Consolidate vendors and reduce fragmentation</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Improve automation coverage</span></div></div></div>
+<div class="qcard"><div class="qnum">Question 1 of 10</div><div class="qtxt">What is the single most important priority for testing in the next 12 months? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Stop production defect escapes reaching customers</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Reduce the overall cost of testing</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Increase release speed — testing should not be the bottleneck</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Establish governance, KPIs and leadership visibility</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Consolidate vendors and reduce fragmentation</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Improve automation coverage</span></div></div></div>
 
 <div class="qcard"><div class="qnum">Question 2 of 10</div><div class="qtxt">Rate your confidence that current testing capability supports your organisation's growth plans. <span class="req">*</span></div><div class="qhint">1 = Testing is a bottleneck and a risk &middot; 5 = Testing fully enables our delivery velocity</div><div class="rrow"><button class="rbtn" onclick="pickRt(this,'r1',1)">1</button><button class="rbtn" onclick="pickRt(this,'r1',2)">2</button><button class="rbtn" onclick="pickRt(this,'r1',3)">3</button><button class="rbtn" onclick="pickRt(this,'r1',4)">4</button><button class="rbtn" onclick="pickRt(this,'r1',5)">5</button><span class="rval" id="r1v"></span></div><div class="rlabels"><span class="rlabel">Not confident</span><span class="rlabel">Fully confident</span></div></div>
 
@@ -210,8 +210,8 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 
 <div class="qcard"><div class="qnum">Question 10 of 10</div><div class="qtxt">What would you most want to be true about testing in 18 months?</div><div class="qhint">e.g. "Zero production incidents from testing gaps" or "One dashboard I can open any time to see quality"</div><textarea class="ms-ta" placeholder="1&ndash;2 sentences is perfect&hellip;" rows="3"></textarea><div class="ihint">Max 2 lines &middot; Confidential</div></div>
 
-<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
-    <div class="progbar"><div class="progfill" id="f1p" style="width:0%"></div></div><div class="progtxt">0 of 10 questions answered</div></div>
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note">>Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" id="f1p" style="width:0%"></div></div><div class="progtxt">0 of 10 questions answered</div></div>
 </div></div>
 
 <!-- FORM 2 — TESTING LEADERS -->
@@ -221,11 +221,11 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 <div class="fstripe" style="background:#8B2645"></div>
 
 <div class="prog-wrap">
-  <div class="prog-outer"><div class="prog-inner" id="f2-prog-bar" style="width:0%"></div></div>
-  <div class="prog-label">
-    <span class="done-txt" id="f2-done-txt">0 answered</span>
-    <span class="left-txt" id="f2-left-txt">Loading…</span>
-  </div>
+  <div class="prog-outer"><div class="prog-inner" id="f2-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f2-done-txt">0 answered</span>
+    <span class="left-txt" id="f2-left-txt">Loading…</span>
+  </div>
 </div>
 <div class="fwrap">
 <div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Testing Leaders — Full Assessment Survey</div><div class="fdesc">Comprehensive assessment across all 13 testing areas. ~40 questions, 25&ndash;30 minutes. Primary data source for the maturity report.</div><div class="fmeta"><span>🧪 <strong>Head of Testing &middot; Test Managers &middot; COE Lead</strong></span><span>⏱ <strong>25&ndash;30 min</strong></span><span>📋 <strong>13 sections</strong></span></div></div>
@@ -249,11 +249,10 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 
 <div class="shdr"><div class="shdr-t">11 — Governance, KPIs &amp; Live Visibility</div><div class="shdr-d">What is measured today and whether leadership has real-time access without asking anyone.</div></div>
 <div class="qcard"><div class="qtxt">Is there a live testing dashboard leadership can access any day without requesting a report? <span class="req">*</span></div><div class="qhint">Live means: right now, without asking anyone, a VP can open a link and see test pass rate, open defects and which programmes are at risk.</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — live dashboard available at any time</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partial — some reports automated, not fully live</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — all reporting prepared manually on request</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — leadership has no regular visibility</span></div></div></div>
-<div class="qcard"><div class="qtxt">Is there a live testing dashboard leadership can access any day without requesting a report? <span class="req">*</span></div><div class="qhint">Live means: right now, without asking anyone, Leadership team can open a link and see test pass rate, open defects and which programmes are at risk.</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — live dashboard available at any time</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partial — some reports automated, not fully live</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — all reporting prepared manually on request</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — leadership has no regular visibility</span></div></div></div>
 <div class="qcard"><div class="qtxt">Which quality metrics are tracked and reported today? <span class="req">*</span> <span class="qsub">(Select all that apply)</span></div><div class="opts"><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Test case pass rate %</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Defect escape rate to production</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Automation coverage %</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Test cycle time</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Defect backlog volume and age trends</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">RAG status per programme</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">None — no formal KPIs tracked today</span></div></div></div>
 
-<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
-    <div class="progbar"><div class="progfill" style="width:28%"></div></div><div class="progtxt">Representative sample shown &middot; Full form has ~40 questions across all 13 sections</div></div>
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note">>Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" style="width:28%"></div></div><div class="progtxt">Representative sample shown &middot; Full form has ~40 questions across all 13 sections</div></div>
 </div></div>
 
 <!-- FORM 3 — ENGINEERING TEAM -->
@@ -263,11 +262,11 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 <div class="fstripe" style="background:#0078D4"></div>
 
 <div class="prog-wrap">
-  <div class="prog-outer"><div class="prog-inner" id="f3-prog-bar" style="width:0%"></div></div>
-  <div class="prog-label">
-    <span class="done-txt" id="f3-done-txt">0 answered</span>
-    <span class="left-txt" id="f3-left-txt">Loading…</span>
-  </div>
+  <div class="prog-outer"><div class="prog-inner" id="f3-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f3-done-txt">0 answered</span>
+    <span class="left-txt" id="f3-left-txt">Loading…</span>
+  </div>
 </div>
 <div class="fwrap">
 <div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Engineering Team Survey</div><div class="fdesc">15 questions, 12&ndash;15 minutes. Your view on how testing integrates with development, where it helps and where it creates friction.</div><div class="fmeta"><span>💻 <strong>Tech Leads &middot; Engineering Managers &middot; Dev Architects</strong></span><span>⏱ <strong>12&ndash;15 minutes</strong></span></div></div>
@@ -287,8 +286,8 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 
 <div class="qcard"><div class="qtxt">What is your single biggest frustration with the current testing process? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Testing starts too late — defects come back we should have caught</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Environments are unstable and block progress</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Test data is unavailable or incorrect</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Test results not trustworthy — too many false positives</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Testing takes too long and delays our releases</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No clear quality gates — everything is manual judgement</span></div></div></div>
 
-<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
-    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">5 of 15 questions shown (representative sample)</div></div>
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note">>Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">5 of 15 questions shown (representative sample)</div></div>
 </div></div>
 
 <!-- FORM 4 — PRODUCT OWNERS -->
@@ -298,11 +297,11 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 <div class="fstripe" style="background:#107C41"></div>
 
 <div class="prog-wrap">
-  <div class="prog-outer"><div class="prog-inner" id="f4-prog-bar" style="width:0%"></div></div>
-  <div class="prog-label">
-    <span class="done-txt" id="f4-done-txt">0 answered</span>
-    <span class="left-txt" id="f4-left-txt">Loading…</span>
-  </div>
+  <div class="prog-outer"><div class="prog-inner" id="f4-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f4-done-txt">0 answered</span>
+    <span class="left-txt" id="f4-left-txt">Loading…</span>
+  </div>
 </div>
 <div class="fwrap">
 <div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Product &amp; Business Survey</div><div class="fdesc">13 questions, 10&ndash;12 minutes. Acceptance criteria, test case relevance, go/no-go decisions and confidence in releases.</div><div class="fmeta"><span>📋 <strong>Product Owners &middot; Business Analysts &middot; Delivery Managers</strong></span><span>⏱ <strong>10&ndash;12 minutes</strong></span></div></div>
@@ -318,8 +317,8 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 
 <div class="qcard"><div class="qtxt">Rate how much you trust the testing process to catch defects that matter to the business. <span class="req">*</span></div><div class="qhint">1 = Low trust — I expect issues after every release &middot; 5 = High trust — testing reliably protects us</div><div class="rrow"><button class="rbtn" onclick="pickRt(this,'f4r4',1)">1</button><button class="rbtn" onclick="pickRt(this,'f4r4',2)">2</button><button class="rbtn" onclick="pickRt(this,'f4r4',3)">3</button><button class="rbtn" onclick="pickRt(this,'f4r4',4)">4</button><button class="rbtn" onclick="pickRt(this,'f4r4',5)">5</button><span class="rval" id="f4r4v"></span></div><div class="rlabels"><span class="rlabel">Low trust</span><span class="rlabel">Full trust</span></div></div>
 
-<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
-    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">4 of 13 questions shown (representative sample)</div></div>
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note">>Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">4 of 13 questions shown (representative sample)</div></div>
 </div></div>
 
 <!-- FORM 5 — OPERATIONS -->
@@ -329,11 +328,11 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 <div class="fstripe" style="background:#C7680A"></div>
 
 <div class="prog-wrap">
-  <div class="prog-outer"><div class="prog-inner" id="f5-prog-bar" style="width:0%"></div></div>
-  <div class="prog-label">
-    <span class="done-txt" id="f5-done-txt">0 answered</span>
-    <span class="left-txt" id="f5-left-txt">Loading…</span>
-  </div>
+  <div class="prog-outer"><div class="prog-inner" id="f5-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f5-done-txt">0 answered</span>
+    <span class="left-txt" id="f5-left-txt">Loading…</span>
+  </div>
 </div>
 <div class="fwrap">
 <div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Operations &amp; Service Management Survey</div><div class="fdesc">11 questions, 8&ndash;10 minutes. Production incidents, pre-release visibility and whether testing is a reliable risk filter.</div><div class="fmeta"><span>⚙️ <strong>Operations &middot; Service Delivery &middot; NOC/SOC &middot; Release Managers</strong></span><span>⏱ <strong>8&ndash;10 minutes</strong></span></div></div>
@@ -350,186 +349,185 @@ var ENGAGEMENT  = "Testing COE Assessment · Confidential";
 
 <div class="qcard"><div class="qtxt">What is the single biggest quality risk you face in production today? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Billing errors impacting customers</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Network or provisioning failures</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Performance degradation under peak load</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Security vulnerabilities</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Configuration drift between test and production</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Data integrity issues</span></div></div></div>
 
-<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
-    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">5 of 11 questions shown (representative sample)</div></div>
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note">>Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">5 of 11 questions shown (representative sample)</div></div>
 </div></div>
 
 <script>
 var rlabels=['','Very Low','Low','Moderate','Good','Excellent'];
-
-// ── Apply client config on load ──────────────────────────────────────────────
-window.onload = function(){
-  var logo = document.getElementById('hdr-logo');
-  var name = document.getElementById('hdr-name');
-  var eng  = document.getElementById('hdr-eng');
-  if(logo) logo.textContent = CLIENT_LOGO;
-  if(name) name.textContent = CLIENT_NAME;
-  if(eng)  eng.textContent  = ENGAGEMENT;
-  // Also inject into landing page
-  var lsub = document.querySelector('.ll-s');
-  if(lsub) lsub.textContent = CLIENT_NAME + ' · ' + ENGAGEMENT;
-};
-
-// ── SCREEN NAVIGATION ────────────────────────────────────────────────────────
 var currentForm = null;
 
+/* ── CLIENT CONFIG — change these for each engagement ── */
+var CLIENT_NAME = "Mobile Carrier";
+var CLIENT_LOGO = "📡";
+var ENGAGEMENT  = "Testing COE Assessment · Confidential";
+
+window.onload = function(){
+  var logo = document.getElementById('hdr-logo');
+  var name = document.getElementById('hdr-name');
+  var eng  = document.getElementById('hdr-eng');
+  if(logo) logo.textContent = CLIENT_LOGO;
+  if(name) name.textContent = CLIENT_NAME;
+  if(eng)  eng.textContent  = ENGAGEMENT;
+};
+
+/* ── NAVIGATION ── */
 function openForm(id){
-  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('visible');});
-  document.getElementById('screen-'+id).classList.add('visible');
-  currentForm = id;
-  window.scrollTo({top:0,behavior:'smooth'});
-  updateProgress(id);
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('visible'); });
+  document.getElementById('screen-'+id).classList.add('visible');
+  currentForm = id;
+  window.scrollTo({top:0, behavior:'smooth'});
+  initProgress(id);
 }
 
 function goBack(){
-  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('visible');});
-  document.getElementById('screen-landing').classList.add('visible');
-  currentForm = null;
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('visible'); });
+  document.getElementById('screen-landing').classList.add('visible');
+  currentForm = null;
+  window.scrollTo({top:0, behavior:'smooth'});
 }
 
 function submitted(){
-  alert('✅ Response submitted.\n\nThank you — our assessment team will review your input before your scheduled interview.');
+  alert('Response submitted.\n\nThank you — our assessment team will review your input before your scheduled interview.');
 }
 
-// ── RADIO — one selection only, then auto-scroll ──────────────────────────────
+/* ── INIT PROGRESS (called when form opens) ── */
+function initProgress(fid){
+  var total = getRequiredCards(fid).length;
+  setProgressUI(fid, 0, total);
+  /* disable submit */
+  getSubmitBtn(fid).disabled = true;
+  getSubmitNote(fid).textContent = 'Answer all ' + total + ' questions to submit';
+  getSubmitNote(fid).classList.remove('ready');
+}
+
+/* ── GET HELPERS ── */
+function getScreen(fid){ return document.getElementById('screen-'+fid); }
+
+function getRequiredCards(fid){
+  var screen = getScreen(fid);
+  if(!screen) return [];
+  var cards = Array.from(screen.querySelectorAll('.qcard'));
+  return cards.filter(function(c){
+    /* required = has radio/checkbox options OR a rating row */
+    return c.querySelector('.opts') || c.querySelector('.rrow') || c.querySelector('.ms-input');
+  });
+}
+
+function getSubmitBtn(fid){
+  var screen = getScreen(fid);
+  return screen ? screen.querySelector('.subbtn') : null;
+}
+
+function getSubmitNote(fid){
+  var screen = getScreen(fid);
+  return screen ? screen.querySelector('.submit-note') : null;
+}
+
+/* ── MARK CARD ANSWERED ── */
+function markAnswered(el){
+  var card = el.closest('.qcard');
+  if(card) card.classList.add('answered-ok');
+}
+
+/* ── RADIO — single select per group ── */
 function pickR(el){
-  var container=el.closest('.opts');
-  container.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel');});
-  el.classList.add('sel');
-  var card = el.closest('.qcard');
-  if(card){ card.classList.add('answered-ok'); }
-  if(currentForm) updateProgress(currentForm);
-  setTimeout(function(){ autoScrollNext(el); }, 300);
+  /* deselect all siblings in same opts block */
+  el.closest('.opts').querySelectorAll('.opt').forEach(function(o){ o.classList.remove('sel'); });
+  el.classList.add('sel');
+  markAnswered(el);
+  if(currentForm){ updateProgress(currentForm); }
+  setTimeout(function(){ scrollToNext(el); }, 320);
 }
 
-// ── CHECKBOX — toggle, update progress ───────────────────────────────────────
+/* ── CHECKBOX — multi select ── */
 function pickC(el){
-  el.classList.toggle('chkd');
-  var card = el.closest('.qcard');
-  if(card){
-    var anyChecked = card.querySelectorAll('.opt.chkd').length > 0;
-    card.classList.toggle('answered-ok', anyChecked);
-  }
-  if(currentForm) updateProgress(currentForm);
+  el.classList.toggle('chkd');
+  var card = el.closest('.qcard');
+  if(card){
+    var anyChecked = card.querySelectorAll('.opt.chkd').length > 0;
+    if(anyChecked) card.classList.add('answered-ok');
+    else           card.classList.remove('answered-ok');
+  }
+  if(currentForm){ updateProgress(currentForm); }
 }
 
-// ── RATING ────────────────────────────────────────────────────────────────────
-function pickRt(btn,group,val){
-  var row=btn.closest('.rrow');
-  var btns=row.querySelectorAll('.rbtn');
-  btns.forEach(function(b,i){b.classList.toggle('on',i<val);});
-  var lbl=document.getElementById(group+'v');
-  if(lbl) lbl.textContent=val+'/5 — '+rlabels[val];
-  var card = btn.closest('.qcard');
-  if(card){ card.classList.add('answered-ok'); }
-  if(currentForm) updateProgress(currentForm);
-  setTimeout(function(){ autoScrollNext(btn); }, 300);
+/* ── RATING ── */
+function pickRt(btn, group, val){
+  btn.closest('.rrow').querySelectorAll('.rbtn').forEach(function(b,i){ b.classList.toggle('on', i<val); });
+  var lbl = document.getElementById(group+'v');
+  if(lbl) lbl.textContent = val + '/5 — ' + rlabels[val];
+  markAnswered(btn);
+  if(currentForm){ updateProgress(currentForm); }
+  setTimeout(function(){ scrollToNext(btn); }, 320);
 }
 
-// ── PROGRESS TRACKING ─────────────────────────────────────────────────────────
+/* ── UPDATE PROGRESS ── */
 function updateProgress(fid){
-  var screen = document.getElementById('screen-'+fid);
-  if(!screen) return;
+  var cards = getRequiredCards(fid);
+  var total = cards.length;
+  var done  = cards.filter(function(c){ return c.classList.contains('answered-ok'); }).length;
+  var left  = total - done;
 
-  // Count required qcards (those with .opts or .rrow — exclude free text)
-  var allRequired = screen.querySelectorAll('.qcard');
-  var requiredCards = [];
-  allRequired.forEach(function(card){
-    // Only count cards that have interactive required elements
-    var hasOpts  = card.querySelector('.opts') !== null;
-    var hasRrow  = card.querySelector('.rrow') !== null;
-    var hasInput = card.querySelector('.ms-input') !== null;
-    // Free text (ms-ta) is optional — not counted
-    if(hasOpts || hasRrow || hasInput){ requiredCards.push(card); }
-  });
+  setProgressUI(fid, done, total);
 
-  var total = requiredCards.length;
-  var done  = 0;
-  requiredCards.forEach(function(card){
-    if(card.classList.contains('answered-ok')){
-      done++;
-    } else {
-      // Check inputs
-      var inp = card.querySelector('.ms-input');
-      if(inp && inp.value.trim().length > 0){
-        card.classList.add('answered-ok');
-        done++;
-      }
-    }
-  });
+  var btn  = getSubmitBtn(fid);
+  var note = getSubmitNote(fid);
 
-  var pct   = total > 0 ? Math.round((done/total)*100) : 0;
-  var left  = total - done;
-
-  // Update bar
-  var bar = document.getElementById(fid+'-prog-bar');
-  if(bar) bar.style.width = pct + '%';
-
-  var doneTxt = document.getElementById(fid+'-done-txt');
-  if(doneTxt) doneTxt.textContent = done + ' of ' + total + ' answered (' + pct + '%)';
-
-  var leftTxt = document.getElementById(fid+'-left-txt');
-  if(leftTxt) leftTxt.textContent = left > 0 ? left + ' remaining' : '✓ All done!';
-
-  // Enable / disable submit buttons in this form
-  var submitBtns = screen.querySelectorAll('.subbtn');
-  var notes = screen.querySelectorAll('.submit-note');
-  submitBtns.forEach(function(btn){
-    btn.disabled = (left > 0);
-  });
-  notes.forEach(function(note){
-    if(left > 0){
-      note.textContent = left + ' required question' + (left===1?'':'s') + ' still to answer';
-      note.classList.remove('ready');
-    } else {
-      note.textContent = '✓ All questions answered — ready to submit';
-      note.classList.add('ready');
-    }
-  });
+  if(btn){
+    btn.disabled = (left > 0);
+    btn.style.opacity = left > 0 ? '0.35' : '1';
+  }
+  if(note){
+    if(left > 0){
+      note.textContent = left + ' question' + (left===1?'':'s') + ' remaining';
+      note.classList.remove('ready');
+    } else {
+      note.textContent = '✓ All done — ready to submit!';
+      note.classList.add('ready');
+    }
+  }
 }
 
-// ── AUTO SCROLL TO NEXT UNANSWERED ───────────────────────────────────────────
-function autoScrollNext(el){
-  var screen = document.getElementById('screen-'+currentForm);
-  if(!screen) return;
-  var cards = Array.from(screen.querySelectorAll('.qcard'));
-  var currentCard = el.closest('.qcard');
-  var currentIdx  = cards.indexOf(currentCard);
-  // Find next unanswered card after current
-  for(var i = currentIdx+1; i < cards.length; i++){
-    var card = cards[i];
-    var hasOpts  = card.querySelector('.opts');
-    var hasRrow  = card.querySelector('.rrow');
-    var hasInput = card.querySelector('.ms-input');
-    if(hasOpts || hasRrow || hasInput){
-      if(!card.classList.contains('answered-ok')){
-        card.scrollIntoView({behavior:'smooth', block:'center'});
-        return;
-      }
-    }
-  }
-  // All answered — scroll to submit
-  var sub = screen.querySelector('.subwrap');
-  if(sub) sub.scrollIntoView({behavior:'smooth', block:'center'});
+/* ── SET PROGRESS BAR UI ── */
+function setProgressUI(fid, done, total){
+  var pct = total > 0 ? Math.round((done/total)*100) : 0;
+  var bar = document.getElementById(fid+'-prog-bar');
+  var doneTxt = document.getElementById(fid+'-done-txt');
+  var leftTxt = document.getElementById(fid+'-left-txt');
+  if(bar)     bar.style.width = pct + '%';
+  if(doneTxt) doneTxt.textContent = done + ' of ' + total + ' answered';
+  if(leftTxt) leftTxt.textContent = (total-done) > 0 ? (total-done) + ' to go' : '✓ Complete!';
 }
 
-// Track number inputs too
+/* ── AUTO SCROLL TO NEXT UNANSWERED ── */
+function scrollToNext(el){
+  if(!currentForm) return;
+  var cards = getRequiredCards(currentForm);
+  var current = el.closest('.qcard');
+  var idx = cards.indexOf(current);
+  for(var i = idx+1; i < cards.length; i++){
+    if(!cards[i].classList.contains('answered-ok')){
+      cards[i].scrollIntoView({behavior:'smooth', block:'center'});
+      return;
+    }
+  }
+  /* all done — scroll to submit */
+  var sub = getScreen(currentForm).querySelector('.subwrap');
+  if(sub) sub.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+/* ── TRACK TEXT INPUTS ── */
 document.addEventListener('input', function(e){
-  if(e.target.classList.contains('ms-input')){
-    var card = e.target.closest('.qcard');
-    if(card){
-      if(e.target.value.trim().length > 0){
-        card.classList.add('answered-ok');
-      } else {
-        card.classList.remove('answered-ok');
-      }
-      if(currentForm) updateProgress(currentForm);
-    }
-  }
+  if(e.target.classList.contains('ms-input') && currentForm){
+    var card = e.target.closest('.qcard');
+    if(card){
+      if(e.target.value.trim().length > 0) card.classList.add('answered-ok');
+      else card.classList.remove('answered-ok');
+      updateProgress(currentForm);
+    }
+  }
 });
 </script>
 
 </body>
-
-</html>
