@@ -1,65 +1,539 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .progress { width: 100%; background-color: #f3f3f3; }
-        .progress-bar { height: 20px; width: 0; background-color: #4caf50; }
-        .container { margin-bottom: 20px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Testing Assessment — Sample Demo</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#F3F2F1;color:#201F1E;min-height:100vh}
+.screen{display:none}.screen.visible{display:block}
+#landing-header{background:#fff;border-bottom:1px solid #E1DFDD;padding:12px 28px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.ll{display:flex;align-items:center;gap:12px}
+.ll-icon{width:34px;height:34px;background:#8B2645;border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px}
+.ll-t{font-size:13px;font-weight:700;color:#201F1E}.ll-s{font-size:11px;color:#A19F9D;margin-top:1px}
+.landing-conf{font-size:11px;color:#A19F9D}
+#landing-body{max-width:860px;margin:0 auto;padding:52px 24px 60px;text-align:center}
+.chip{display:inline-block;background:#F0EBF8;border:1px solid #C4B5FD;border-radius:20px;padding:5px 16px;font-size:12px;font-weight:600;color:#5C2D91;margin-bottom:22px;letter-spacing:.5px}
+.lh1{font-size:clamp(22px,4vw,30px);font-weight:700;color:#201F1E;line-height:1.25;margin-bottom:12px}
+.lsub{font-size:15px;color:#605E5C;line-height:1.65;max-width:520px;margin:0 auto 48px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;text-align:left;margin-bottom:36px}
+.pcard{background:#fff;border-radius:8px;border:2px solid #E1DFDD;overflow:hidden;cursor:pointer;transition:all .18s}
+.pcard:hover{border-color:var(--c);transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.pt{padding:18px 20px 14px;display:flex;align-items:center;justify-content:space-between}
+.pi{font-size:28px}.pb{font-size:10px;font-weight:700;color:rgba(255,255,255,.92);background:rgba(255,255,255,.2);padding:4px 10px;border-radius:12px;white-space:nowrap}
+.pbo{padding:16px 20px 20px}
+.ptitle{font-size:16px;font-weight:700;color:#201F1E;margin-bottom:4px}
+.proles{font-size:11px;color:#A19F9D;margin-bottom:10px;line-height:1.4}
+.pdesc{font-size:13px;color:#605E5C;line-height:1.55;margin-bottom:14px}
+.pcta{font-size:13px;font-weight:600;color:var(--c)}
+.lnote{font-size:12px;color:#A19F9D}
+.ftopbar{background:#fff;border-bottom:1px solid #E1DFDD;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.backbtn{display:flex;align-items:center;gap:6px;font-size:13px;color:#605E5C;cursor:pointer;padding:6px 14px;border-radius:4px;border:1px solid #E1DFDD;background:#fff;font-family:inherit;transition:all .12s}
+.backbtn:hover{background:#FAF9F8;border-color:#C8C6C4}
+.ftrole{font-size:13px;font-weight:600}.ftright{font-size:11px;color:#A19F9D}
+.fstripe{height:8px}
+.fwrap{max-width:680px;margin:0 auto;padding:24px 16px 80px}
+.ftcard{background:#fff;border-radius:4px;border-top:8px solid var(--fc);padding:26px 30px 22px;margin-bottom:14px;box-shadow:0 1.6px 3.6px rgba(0,0,0,.13)}
+.forg{font-size:12px;color:#A19F9D;margin-bottom:6px}
+.fname{font-size:24px;font-weight:700;color:#201F1E;margin-bottom:10px;line-height:1.2}
+.fdesc{font-size:14px;color:#605E5C;line-height:1.55}
+.fmeta{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid #E1DFDD}
+.fmeta span{font-size:12px;color:#A19F9D}.fmeta strong{color:var(--fc)}
+.abar{background:#EFF6EB;border:1px solid #A3C996;border-radius:4px;padding:10px 14px;margin-bottom:12px;font-size:13px;color:#1E6E34;display:flex;align-items:center;gap:8px}
+.wbar{background:#FFF4CE;border:1px solid #F2C94C;border-radius:4px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#7A5C00;display:flex;align-items:center;gap:8px}
+.shdr{background:#fff;border-radius:4px;padding:16px 30px;margin-bottom:3px;border-left:4px solid var(--fc);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.shdr-t{font-size:15px;font-weight:600;color:#201F1E}.shdr-d{font-size:13px;color:#605E5C;margin-top:3px}
+.qcard{background:#fff;border-radius:4px;padding:18px 30px 22px;margin-bottom:3px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.qnum{font-size:11px;color:#A19F9D;margin-bottom:4px}
+.qtxt{font-size:15px;font-weight:600;color:#201F1E;line-height:1.4}
+.qtxt .req{color:#C50F1F}.qsub{font-size:13px;color:#605E5C;font-weight:400}
+.qhint{font-size:12px;color:#A19F9D;margin-top:5px;margin-bottom:14px;font-style:italic;line-height:1.5}
+.opts{display:flex;flex-direction:column;gap:3px;margin-top:12px}
+.opt{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:4px;cursor:pointer;border:1px solid transparent;transition:all .1s;user-select:none}
+.opt:hover{background:#FAF9F8;border-color:#E1DFDD}
+.opt.sel{border-color:var(--fc)}
+.opt.chkd{border-color:var(--fc)}
+.rdot{width:18px;height:18px;border-radius:50%;border:2px solid #C8C6C4;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .1s}
+.opt.sel .rdot{border-color:var(--fc);background:var(--fc)}
+.rinner{width:7px;height:7px;border-radius:50%;background:#fff;display:none}
+.opt.sel .rinner{display:block}
+.cbox{width:18px;height:18px;border-radius:3px;border:2px solid #C8C6C4;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700;transition:all .1s}
+.opt.chkd .cbox{border-color:var(--fc);background:var(--fc)}
+.otxt{font-size:14px;color:#201F1E}
+.rrow{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;align-items:center}
+.rlabels{display:flex;justify-content:space-between;margin-top:6px;max-width:270px}
+.rlabel{font-size:11px;color:#A19F9D}
+.rval{font-size:13px;color:var(--fc);font-weight:600;margin-left:6px}
+.rbtn{width:46px;height:46px;border-radius:50%;border:2px solid #C8C6C4;background:#fff;font-size:15px;font-weight:600;cursor:pointer;color:#605E5C;transition:all .14s;font-family:inherit}
+.rbtn:hover{border-color:var(--fc);color:var(--fc)}
+.rbtn.on{background:var(--fc);border-color:var(--fc);color:#fff}
+.ms-input{width:100%;margin-top:12px;border:none;border-bottom:2px solid #C8C6C4;padding:8px 0;font-size:14px;color:#201F1E;outline:none;background:transparent;font-family:inherit;transition:border-color .14s}
+.ms-input:focus{border-bottom-color:var(--fc)}
+.ms-ta{width:100%;margin-top:12px;border:none;border-bottom:2px solid #C8C6C4;padding:8px 0;font-size:14px;color:#201F1E;outline:none;background:transparent;font-family:inherit;resize:none;min-height:56px;transition:border-color .14s}
+.ms-ta:focus{border-bottom-color:var(--fc)}
+.ihint{font-size:11px;color:#A19F9D;margin-top:4px}
+.subwrap{margin-top:28px}
+.subbtn{background:var(--fc);color:#fff;border:none;border-radius:2px;padding:12px 36px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;transition:opacity .14s}
+.subbtn:hover{opacity:.88}
+.progbar{height:4px;background:#E1DFDD;border-radius:2px;margin-top:18px}
+.progfill{height:100%;background:var(--fc);border-radius:2px;transition:width .3s}
+.progtxt{font-size:12px;color:#A19F9D;margin-top:6px}
+
+/* ── PROGRESS BAR ── */
+.prog-wrap{padding:10px 24px 0;max-width:680px;margin:0 auto}
+.prog-outer{height:6px;background:#E1DFDD;border-radius:3px;overflow:hidden;margin-bottom:4px}
+.prog-inner{height:100%;background:var(–fc);border-radius:3px;transition:width 0.4s ease}
+.prog-label{font-size:12px;color:#A19F9D;display:flex;justify-content:space-between;margin-bottom:8px}
+.prog-label .done-txt{color:var(–fc);font-weight:700}
+.prog-label .left-txt{color:#A19F9D}
+
+/* ── SUBMIT GUARD ── */
+.subbtn:disabled{opacity:0.35;cursor:not-allowed}
+.subbtn:disabled:hover{opacity:0.35}
+.submit-note{font-size:12px;color:#A19F9D;margin-top:10px;text-align:center}
+.submit-note.ready{color:#1A7A4A;font-weight:600}
+
+/* ── ANSWERED HIGHLIGHT ── */
+.qcard.answered-ok{border-left:3px solid var(–fc)}
+
+/* ── CLIENT HEADER ── */
+.client-hdr{background:#fff;border-bottom:1px solid #E1DFDD;padding:10px 24px;
+display:flex;align-items:center;justify-content:space-between}
+.client-hdr-left{display:flex;align-items:center;gap:12px}
+.client-logo-wrap{font-size:28px;line-height:1}
+.client-name{font-size:14px;font-weight:700;color:#201F1E}
+.client-eng{font-size:11px;color:#A19F9D;margin-top:2px}
+.client-hdr-right{font-size:11px;color:#A19F9D;text-align:right}
+
+</style>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   CLIENT CONFIG — update these two lines for each engagement
+═══════════════════════════════════════════════════════════════ */
+var CLIENT_NAME = "Mobile Carrier";      // replace with actual client name
+var CLIENT_LOGO = "📡";                  // replace with logo <img> tag or emoji
+var ENGAGEMENT  = "Testing COE Assessment · Confidential";
+/* ════════════════════════════════════════════════════════════ */
+</script>
+
 </head>
 <body>
-    <h1>Survey</h1>
-    <div class="progress">
-        <div class="progress-bar" id="progress-bar"></div>
+
+<div class="client-hdr" id="client-hdr">
+  <div class="client-hdr-left">
+    <div class="client-logo-wrap" id="hdr-logo"></div>
+    <div>
+      <div class="client-name" id="hdr-name"></div>
+      <div class="client-eng" id="hdr-eng"></div>
     </div>
-    <div class="container">
-        <h2>Section 1</h2>
-        <form id="survey-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
-            <button type="button" onclick="nextSection(1)">Next</button>
-        </form>
+  </div>
+  <div class="client-hdr-right">🔒 Confidential &middot; Responses anonymised</div>
+</div>
+
+<!-- LANDING -->
+
+<div id="screen-landing" class="screen visible">
+<div id="landing-header">
+  <div class="ll">
+    <div class="ll-icon">🧪</div>
+    <div><div class="ll-t">Testing Assessment Survey</div><div class="ll-s">Sample Demo &middot; Kickoff Session</div></div>
+  </div>
+  <div class="landing-conf">🔒 Confidential &middot; Responses anonymised</div>
+</div>
+<div id="landing-body">
+  <div class="chip">SELECT YOUR ROLE TO BEGIN</div>
+  <h1 class="lh1">Select Your Role to Begin</h1>
+  <p class="lsub">Each role has a tailored set of questions aligned to your perspective. Please select the role that best represents your responsibilities.</p>
+  <div class="pgrid">
+    <div class="pcard" style="--c:#5C2D91" onclick="openForm('f1')">
+      <div class="pt" style="background:#5C2D91"><span class="pi">👔</span><span class="pb">10 Q &middot; 8&ndash;10 min</span></div>
+      <div class="pbo"><div class="ptitle">Senior Executives / VP</div><div class="proles">VP of Testing &middot; Senior Directors &middot; Sponsors</div><div class="pdesc">Strategic questions only — priorities, confidence, vendor view and what you want testing to look like in 18 months. No technical questions.</div><div class="pcta">Select this role &rarr;</div></div>
+      <div class="pbo"><div class="ptitle">Senior Executives</div><div class="proles">Testing Leaders &middot; Senior Directors &middot; Sponsors</div><div class="pdesc">Strategic questions only — priorities, confidence, vendor view and what you want testing to look like in 18 months. No technical questions.</div><div class="pcta">Select this role &rarr;</div></div>
     </div>
-    <div class="container" style="display: none;">
-        <h2>Section 2</h2>
-        <form>
-            <label for="feedback">Feedback:</label>
-            <textarea id="feedback" name="feedback" rows="4" required></textarea><br><br>
-            <button type="button" onclick="submitSurvey()">Submit</button>
-        </form>
+    <div class="pcard" style="--c:#8B2645" onclick="openForm('f2')">
+      <div class="pt" style="background:#8B2645"><span class="pi">🧪</span><span class="pb">~40 Q &middot; 25&ndash;30 min</span></div>
+      <div class="pbo"><div class="ptitle">Testing Leaders</div><div class="proles">Head of Testing &middot; Test Managers &middot; COE Lead</div><div class="pdesc">Detailed form across all 13 assessment areas — org structure, defect backlog, test cases, automation, governance and more.</div><div class="pcta">Select this role &rarr;</div></div>
     </div>
-    <script>
-        let currentSection = 0;
-        const sections = document.querySelectorAll('.container');
-        const progressBar = document.getElementById('progress-bar');
+    <div class="pcard" style="--c:#0078D4" onclick="openForm('f3')">
+      <div class="pt" style="background:#0078D4"><span class="pi">💻</span><span class="pb">15 Q &middot; 12&ndash;15 min</span></div>
+      <div class="pbo"><div class="ptitle">Engineering Team</div><div class="proles">Tech Leads &middot; Engineering Managers &middot; Dev Architects</div><div class="pdesc">How testing integrates with development, CI/CD quality gates, environment stability and where testing helps or slows you down.</div><div class="pcta">Select this role &rarr;</div></div>
+    </div>
+    <div class="pcard" style="--c:#107C41" onclick="openForm('f4')">
+      <div class="pt" style="background:#107C41"><span class="pi">📋</span><span class="pb">13 Q &middot; 10&ndash;12 min</span></div>
+      <div class="pbo"><div class="ptitle">Product Owners</div><div class="proles">Product Owners &middot; Business Analysts &middot; Delivery Managers</div><div class="pdesc">Acceptance criteria, test case relevance, go/no-go decisions and whether testing gives you enough confidence before releases.</div><div class="pcta">Select this role &rarr;</div></div>
+    </div>
+    <div class="pcard" style="--c:#C7680A" onclick="openForm('f5')">
+      <div class="pt" style="background:#C7680A"><span class="pi">⚙️</span><span class="pb">11 Q &middot; 8&ndash;10 min</span></div>
+      <div class="pbo"><div class="ptitle">Operations</div><div class="proles">Operations Managers &middot; Service Delivery &middot; NOC/SOC &middot; Release Managers</div><div class="pdesc">What reaches production, production incidents from testing gaps, pre-release visibility and whether testing is a reliable risk filter.</div><div class="pcta">Select this role &rarr;</div></div>
+    </div>
+  </div>
+  <p class="lnote">All responses are confidential and anonymised in reporting &middot; Testing Assessment Sample Demo</p>
+</div>
+</div>
 
-        function nextSection(section) {
-            sections[section - 1].style.display = 'none';
-            currentSection = section;
-            sections[section].style.display = 'block';
-            updateProgress();
-            autoScroll();
-        }
+<!-- FORM 1 — SENIOR EXECUTIVES / VP -->
+<!-- FORM 1 — SENIOR EXECUTIVES -->
 
-        function updateProgress() {
-            const progress = ((currentSection + 1) / sections.length) * 100;
-            progressBar.style.width = progress + '%';
-        }
+<div id="screen-f1" class="screen" style="--fc:#5C2D91">
+<div class="ftopbar"><button class="backbtn" onclick="goBack()">&#8592; Change role</button><div class="ftrole" style="color:#5C2D91">👔 Senior Executives / VP</div><div class="ftright">Testing Assessment Demo</div></div>
+<div class="ftopbar"><button class="backbtn" onclick="goBack()">&#8592; Change role</button><div class="ftrole" style="color:#5C2D91">👔 Senior Executives</div><div class="ftright">Testing Assessment Demo</div></div>
+<div class="fstripe" style="background:#5C2D91"></div>
 
-        function autoScroll() {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        }
+<div class="prog-wrap">
+  <div class="prog-outer"><div class="prog-inner" id="f1-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f1-done-txt">0 answered</span>
+    <span class="left-txt" id="f1-left-txt">Loading…</span>
+  </div>
+</div>
+<div class="fwrap">
+<div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Executive &amp; Leadership Survey</div><div class="fdesc">Strategic assessment for senior leaders. 10 questions, 8&ndash;10 minutes. Your responses shape the transformation roadmap.</div><div class="fmeta"><span>👔 <strong>VP, Senior Directors, Programme Sponsors</strong></span><span>⏱ <strong>8&ndash;10 minutes</strong></span><span>🔒 <strong>Confidential</strong></span></div></div>
+<div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Executive &amp; Leadership Survey</div><div class="fdesc">Strategic assessment for senior leaders. 10 questions, 8&ndash;10 minutes. Your responses shape the transformation roadmap.</div><div class="fmeta"><span>👔 <strong>Executives, Senior Directors, Programme Sponsors</strong></span><span>⏱ <strong>8&ndash;10 minutes</strong></span><span>🔒 <strong>Confidential</strong></span></div></div>
+<div class="abar">✅ Your responses are anonymised. Individual answers are never attributed by name.</div>
 
-        function submitSurvey() {
-            alert('Survey submitted!');
-            // Here you can add logic to send the data to the server
-        }
-    </script>
+<div class="qcard"><div class="qnum">Question 1 of 10</div><div class="qtxt">What is the single most important priority for testing in the next 12 months? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Prevent production defects from reaching customers</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Reduce the overall cost of testing</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Increase release speed — testing should not be the bottleneck</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Establish governance, KPIs and leadership visibility</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Consolidate vendors and reduce fragmentation</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Improve automation coverage</span></div></div></div>
+
+<div class="qcard"><div class="qnum">Question 2 of 10</div><div class="qtxt">Rate your confidence that current testing capability supports your organisation's growth plans. <span class="req">*</span></div><div class="qhint">1 = Testing is a bottleneck and a risk &middot; 5 = Testing fully enables our delivery velocity</div><div class="rrow"><button class="rbtn" onclick="pickRt(this,'r1',1)">1</button><button class="rbtn" onclick="pickRt(this,'r1',2)">2</button><button class="rbtn" onclick="pickRt(this,'r1',3)">3</button><button class="rbtn" onclick="pickRt(this,'r1',4)">4</button><button class="rbtn" onclick="pickRt(this,'r1',5)">5</button><span class="rval" id="r1v"></span></div><div class="rlabels"><span class="rlabel">Not confident</span><span class="rlabel">Fully confident</span></div></div>
+
+<div class="qcard"><div class="qnum">Question 3 of 10</div><div class="qtxt">How do you currently receive testing and quality status updates? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Live dashboard — I can check any time without asking</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Automated weekly report</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Manual report prepared on request</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Verbal updates in meetings only</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">I do not receive regular updates</span></div></div></div>
+
+<div class="qcard"><div class="qnum">Question 4 of 10</div><div class="qtxt">How many external testing vendors or suppliers are currently active? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">1&ndash;3</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">4&ndash;7</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">8&ndash;12</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">13&ndash;20</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">More than 20</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown</span></div></div></div>
+
+<div class="qcard"><div class="qnum">Question 5 of 10</div><div class="qtxt">Does the current testing cost represent good value for money? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — investment is justified by outcomes</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partially — some areas efficient, others not</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — overspending for the quality outcomes we get</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown — I don't have visibility of testing costs</span></div></div></div>
+
+<div class="qcard"><div class="qnum">Question 6 of 10</div><div class="qtxt">Which barriers are preventing testing improvement? <span class="req">*</span> <span class="qsub">(Select all that apply)</span></div><div class="opts"><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Budget or funding constraints</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Skill gaps in the testing team</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Legacy systems that are difficult to test</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Too many vendors with no standardisation</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">No single owner or COE with real authority</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">No single view of quality across all programmes</span></div></div></div>
+
+<div class="qcard"><div class="qnum">Question 7 of 10</div><div class="qtxt">Is testing status visible enough for you to make informed release decisions? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — I have full real-time visibility</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partially — some view but need to ask for detail</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — I rely on verbal assurance before releases</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — I am not involved in release decisions</span></div></div></div>
+
+<div class="qcard"><div class="qnum">Question 8 of 10</div><div class="qtxt">Rate your confidence in the testing team's ability to execute an 18-month transformation. <span class="req">*</span></div><div class="qhint">1 = Significant change needed first &middot; 5 = Team has capability, just needs investment</div><div class="rrow"><button class="rbtn" onclick="pickRt(this,'r8',1)">1</button><button class="rbtn" onclick="pickRt(this,'r8',2)">2</button><button class="rbtn" onclick="pickRt(this,'r8',3)">3</button><button class="rbtn" onclick="pickRt(this,'r8',4)">4</button><button class="rbtn" onclick="pickRt(this,'r8',5)">5</button><span class="rval" id="r8v"></span></div><div class="rlabels"><span class="rlabel">Low confidence</span><span class="rlabel">High confidence</span></div></div>
+
+<div class="qcard"><div class="qnum">Question 9 of 10</div><div class="qtxt">Rate your overall view of testing maturity across the organisation today. <span class="req">*</span></div><div class="qhint">1 = Ad-hoc, costly, not fit for purpose &middot; 5 = Strategic asset — efficient, visible and trusted</div><div class="rrow"><button class="rbtn" onclick="pickRt(this,'r9',1)">1</button><button class="rbtn" onclick="pickRt(this,'r9',2)">2</button><button class="rbtn" onclick="pickRt(this,'r9',3)">3</button><button class="rbtn" onclick="pickRt(this,'r9',4)">4</button><button class="rbtn" onclick="pickRt(this,'r9',5)">5</button><span class="rval" id="r9v"></span></div><div class="rlabels"><span class="rlabel">Very immature</span><span class="rlabel">World-class</span></div></div>
+
+<div class="qcard"><div class="qnum">Question 10 of 10</div><div class="qtxt">What would you most want to be true about testing in 18 months?</div><div class="qhint">e.g. "Zero production incidents from testing gaps" or "One dashboard I can open any time to see quality"</div><textarea class="ms-ta" placeholder="1&ndash;2 sentences is perfect&hellip;" rows="3"></textarea><div class="ihint">Max 2 lines &middot; Confidential</div></div>
+
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" id="f1p" style="width:0%"></div></div><div class="progtxt">0 of 10 questions answered</div></div>
+</div></div>
+
+<!-- FORM 2 — TESTING LEADERS -->
+
+<div id="screen-f2" class="screen" style="--fc:#8B2645">
+<div class="ftopbar"><button class="backbtn" onclick="goBack()">&#8592; Change role</button><div class="ftrole" style="color:#8B2645">🧪 Testing Leaders</div><div class="ftright">Testing Assessment Demo</div></div>
+<div class="fstripe" style="background:#8B2645"></div>
+
+<div class="prog-wrap">
+  <div class="prog-outer"><div class="prog-inner" id="f2-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f2-done-txt">0 answered</span>
+    <span class="left-txt" id="f2-left-txt">Loading…</span>
+  </div>
+</div>
+<div class="fwrap">
+<div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Testing Leaders — Full Assessment Survey</div><div class="fdesc">Comprehensive assessment across all 13 testing areas. ~40 questions, 25&ndash;30 minutes. Primary data source for the maturity report.</div><div class="fmeta"><span>🧪 <strong>Head of Testing &middot; Test Managers &middot; COE Lead</strong></span><span>⏱ <strong>25&ndash;30 min</strong></span><span>📋 <strong>13 sections</strong></span></div></div>
+<div class="abar">✅ Responses are anonymised. Your name will not appear against any individual answer.</div>
+<div class="wbar">⚠️ Please complete before your scheduled interview. Your interviewer will use responses as a starting point.</div>
+
+<div class="shdr"><div class="shdr-t">01 — Testing Org Structure</div><div class="shdr-d">How testing is set up, governed and owned across programmes.</div></div>
+<div class="qcard"><div class="qtxt">Does a Testing COE exist with a formal mandate and real decision-making authority? <span class="req">*</span></div><div class="qhint">A COE mandate means it can enforce standards across all programmes — not just recommend them.</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — COE enforces standards across all programmes</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partial — COE exists but is advisory only</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — each programme manages testing independently</span></div></div></div>
+<div class="qcard"><div class="qtxt">Total testing headcount (FTE + contractors combined) <span class="req">*</span></div><div class="qhint">e.g. 38 — enter the approximate total</div><input class="ms-input" type="text" inputmode="numeric" placeholder="e.g. 38"></div>
+<div class="qcard"><div class="qtxt">Approximate DEV : Testing ratio <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">1:1</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">2:1</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">3:1</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">4:1</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">5:1 or higher</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown</span></div></div></div>
+
+<div class="shdr"><div class="shdr-t">04 — Defect Backlog Health</div><div class="shdr-d">How defects are managed, triaged, root-caused and whether leadership has visibility.</div></div>
+<div class="qcard"><div class="qtxt">Approximate total open defects across all programmes right now <span class="req">*</span></div><div class="qhint">Include all open defects regardless of severity, age or whether anyone is actively working on them.</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Less than 100</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">100&ndash;500</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">500&ndash;1,000</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">1,000&ndash;5,000</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">5,000+</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown — no single view exists</span></div></div></div>
+<div class="qcard"><div class="qtxt">How old are the oldest open defects? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Days — active triage, nothing sits long</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Weeks</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Months</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">1&ndash;2 years</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Some are 3 years or older</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown</span></div></div></div>
+<div class="qcard"><div class="qtxt">Is there a formal triage process for open defects? <span class="req">*</span></div><div class="qhint">Triage = structured review: Is this still reproducible? Does it need fixing now, later, or at all?</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — formal triage runs regularly</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partial — ad-hoc triage for major defects only</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — defects accumulate without structured review</span></div></div></div>
+<div class="qcard"><div class="qtxt">Who has authority to close, defer or accept a defect as known risk? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Testing lead only</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Business stakeholder or product owner</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Joint decision — testing and business together</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No clear process — defects accumulate</span></div></div></div>
+
+<div class="shdr"><div class="shdr-t">05 — Test Case Management</div><div class="shdr-d">Whether the test case library is current, relevant and actually being executed.</div></div>
+<div class="qcard"><div class="qtxt">Approximately how many test cases exist today? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Less than 1,000</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">1,000&ndash;5,000</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">5,000&ndash;15,000</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">15,000&ndash;50,000</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">50,000+</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown — not centrally managed</span></div></div></div>
+<div class="qcard"><div class="qtxt">What proportion of test cases are actually executed per release? <span class="req">*</span></div><div class="qhint">If 45,000 test cases exist but only 5,000 run per release — the rest are dead weight creating maintenance cost without coverage value.</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Nearly all (90%+)</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Majority (60&ndash;90%)</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">About half (40&ndash;60%)</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Minority (20&ndash;40%)</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">A small fraction (less than 20%)</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown — execution rate not tracked</span></div></div></div>
+
+<div class="shdr"><div class="shdr-t">11 — Governance, KPIs &amp; Live Visibility</div><div class="shdr-d">What is measured today and whether leadership has real-time access without asking anyone.</div></div>
+<div class="qcard"><div class="qtxt">Is there a live testing dashboard leadership can access any day without requesting a report? <span class="req">*</span></div><div class="qhint">Live means: right now, without asking anyone, a VP can open a link and see test pass rate, open defects and which programmes are at risk.</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — live dashboard available at any time</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partial — some reports automated, not fully live</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — all reporting prepared manually on request</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — leadership has no regular visibility</span></div></div></div>
+<div class="qcard"><div class="qtxt">Is there a live testing dashboard leadership can access any day without requesting a report? <span class="req">*</span></div><div class="qhint">Live means: right now, without asking anyone, Leadership team can open a link and see test pass rate, open defects and which programmes are at risk.</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — live dashboard available at any time</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partial — some reports automated, not fully live</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — all reporting prepared manually on request</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — leadership has no regular visibility</span></div></div></div>
+<div class="qcard"><div class="qtxt">Which quality metrics are tracked and reported today? <span class="req">*</span> <span class="qsub">(Select all that apply)</span></div><div class="opts"><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Test case pass rate %</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Defect escape rate to production</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Automation coverage %</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Test cycle time</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Defect backlog volume and age trends</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">RAG status per programme</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">None — no formal KPIs tracked today</span></div></div></div>
+
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" style="width:28%"></div></div><div class="progtxt">Representative sample shown &middot; Full form has ~40 questions across all 13 sections</div></div>
+</div></div>
+
+<!-- FORM 3 — ENGINEERING TEAM -->
+
+<div id="screen-f3" class="screen" style="--fc:#0078D4">
+<div class="ftopbar"><button class="backbtn" onclick="goBack()">&#8592; Change role</button><div class="ftrole" style="color:#0078D4">💻 Engineering Team</div><div class="ftright">Testing Assessment Demo</div></div>
+<div class="fstripe" style="background:#0078D4"></div>
+
+<div class="prog-wrap">
+  <div class="prog-outer"><div class="prog-inner" id="f3-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f3-done-txt">0 answered</span>
+    <span class="left-txt" id="f3-left-txt">Loading…</span>
+  </div>
+</div>
+<div class="fwrap">
+<div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Engineering Team Survey</div><div class="fdesc">15 questions, 12&ndash;15 minutes. Your view on how testing integrates with development, where it helps and where it creates friction.</div><div class="fmeta"><span>💻 <strong>Tech Leads &middot; Engineering Managers &middot; Dev Architects</strong></span><span>⏱ <strong>12&ndash;15 minutes</strong></span></div></div>
+<div class="abar">✅ Your responses are anonymised. No individual answers attributed by name.</div>
+
+<div class="shdr"><div class="shdr-t">Testing Integration in Your Delivery</div></div>
+<div class="qcard"><div class="qtxt">When does testing get involved in your sprint? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">From story creation — testers co-write acceptance criteria with us</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">During development — testing designs in parallel</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">When I hand over a feature — testing phase begins</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">After the whole sprint development is done</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Testing is done by developers only</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">Rate how well testing integrates with your development process. <span class="req">*</span></div><div class="qhint">1 = Testing blocks us every sprint &middot; 5 = Fully integrated, never slows us down</div><div class="rrow"><button class="rbtn" onclick="pickRt(this,'f3r2',1)">1</button><button class="rbtn" onclick="pickRt(this,'f3r2',2)">2</button><button class="rbtn" onclick="pickRt(this,'f3r2',3)">3</button><button class="rbtn" onclick="pickRt(this,'f3r2',4)">4</button><button class="rbtn" onclick="pickRt(this,'f3r2',5)">5</button><span class="rval" id="f3r2v"></span></div><div class="rlabels"><span class="rlabel">Bottleneck</span><span class="rlabel">Fully integrated</span></div></div>
+
+<div class="shdr"><div class="shdr-t">Defects, CI/CD &amp; Quality Gates</div></div>
+<div class="qcard"><div class="qtxt">Is there a CI/CD quality gate that can stop a deployment if tests fail? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — automated tests block deployment if they fail</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partial — tests run but results are informational only</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — deployments require manual approval only</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No pipeline — fully manual process</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">Of defects raised against your team, what proportion are real code defects vs environment or test data noise? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Mostly real code defects (70%+)</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Mixed — roughly half and half</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Mostly environment or test data noise (70%+)</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown — defects are not categorised</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">How much sprint time is lost waiting for test environments? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Less than 5% — environments are reliable</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">5&ndash;10%</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">10&ndash;20%</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">20&ndash;30%</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">More than 30%</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">What is your single biggest frustration with the current testing process? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Testing starts too late — defects come back we should have caught</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Environments are unstable and block progress</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Test data is unavailable or incorrect</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Test results not trustworthy — too many false positives</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Testing takes too long and delays our releases</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No clear quality gates — everything is manual judgement</span></div></div></div>
+
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">5 of 15 questions shown (representative sample)</div></div>
+</div></div>
+
+<!-- FORM 4 — PRODUCT OWNERS -->
+
+<div id="screen-f4" class="screen" style="--fc:#107C41">
+<div class="ftopbar"><button class="backbtn" onclick="goBack()">&#8592; Change role</button><div class="ftrole" style="color:#107C41">📋 Product Owners</div><div class="ftright">Testing Assessment Demo</div></div>
+<div class="fstripe" style="background:#107C41"></div>
+
+<div class="prog-wrap">
+  <div class="prog-outer"><div class="prog-inner" id="f4-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f4-done-txt">0 answered</span>
+    <span class="left-txt" id="f4-left-txt">Loading…</span>
+  </div>
+</div>
+<div class="fwrap">
+<div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Product &amp; Business Survey</div><div class="fdesc">13 questions, 10&ndash;12 minutes. Acceptance criteria, test case relevance, go/no-go decisions and confidence in releases.</div><div class="fmeta"><span>📋 <strong>Product Owners &middot; Business Analysts &middot; Delivery Managers</strong></span><span>⏱ <strong>10&ndash;12 minutes</strong></span></div></div>
+<div class="abar">✅ Your responses are anonymised in all reporting.</div>
+
+<div class="shdr"><div class="shdr-t">Requirements &amp; Testing Integration</div></div>
+<div class="qcard"><div class="qtxt">Are acceptance criteria formally defined before development starts? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — always defined and agreed before the sprint begins</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Mostly — but sometimes defined during development</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Rarely — criteria emerge during testing</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — developers interpret requirements independently</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">Do test results actually influence go/no-go release decisions? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — failed tests always delay the release</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Mostly — but business pressure sometimes overrides</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Rarely — releases go ahead regardless of test status</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — test results are not part of the release decision</span></div></div></div>
+
+<div class="shdr"><div class="shdr-t">Test Case Relevance</div></div>
+<div class="qcard"><div class="qtxt">Do you believe the current test cases reflect what the product actually does today? <span class="req">*</span></div><div class="qhint">Many organisations accumulate test cases for features that have since changed or been retired — but nobody removes them.</div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — test cases are current and relevant</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partially — many relevant but some cover old features</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — significant proportion covers features no longer accurate</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown — I don't have visibility of test cases</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">Rate how much you trust the testing process to catch defects that matter to the business. <span class="req">*</span></div><div class="qhint">1 = Low trust — I expect issues after every release &middot; 5 = High trust — testing reliably protects us</div><div class="rrow"><button class="rbtn" onclick="pickRt(this,'f4r4',1)">1</button><button class="rbtn" onclick="pickRt(this,'f4r4',2)">2</button><button class="rbtn" onclick="pickRt(this,'f4r4',3)">3</button><button class="rbtn" onclick="pickRt(this,'f4r4',4)">4</button><button class="rbtn" onclick="pickRt(this,'f4r4',5)">5</button><span class="rval" id="f4r4v"></span></div><div class="rlabels"><span class="rlabel">Low trust</span><span class="rlabel">Full trust</span></div></div>
+
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">4 of 13 questions shown (representative sample)</div></div>
+</div></div>
+
+<!-- FORM 5 — OPERATIONS -->
+
+<div id="screen-f5" class="screen" style="--fc:#C7680A">
+<div class="ftopbar"><button class="backbtn" onclick="goBack()">&#8592; Change role</button><div class="ftrole" style="color:#C7680A">⚙️ Operations</div><div class="ftright">Testing Assessment Demo</div></div>
+<div class="fstripe" style="background:#C7680A"></div>
+
+<div class="prog-wrap">
+  <div class="prog-outer"><div class="prog-inner" id="f5-prog-bar" style="width:0%"></div></div>
+  <div class="prog-label">
+    <span class="done-txt" id="f5-done-txt">0 answered</span>
+    <span class="left-txt" id="f5-left-txt">Loading…</span>
+  </div>
+</div>
+<div class="fwrap">
+<div class="ftcard"><div class="forg">Testing Assessment &middot; Sample Demo Survey for Kickoff</div><div class="fname">Operations &amp; Service Management Survey</div><div class="fdesc">11 questions, 8&ndash;10 minutes. Production incidents, pre-release visibility and whether testing is a reliable risk filter.</div><div class="fmeta"><span>⚙️ <strong>Operations &middot; Service Delivery &middot; NOC/SOC &middot; Release Managers</strong></span><span>⏱ <strong>8&ndash;10 minutes</strong></span></div></div>
+<div class="abar">✅ Your responses are anonymised in all reporting.</div>
+
+<div class="shdr"><div class="shdr-t">Production Incidents &amp; Escapes</div></div>
+<div class="qcard"><div class="qtxt">How many production incidents in the last 12 months were caused by testing gaps? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">None — testing catches everything before production</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">1&ndash;3 incidents</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">4&ndash;10 incidents</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">10&ndash;20 incidents</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">More than 20</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Unknown — root cause not tracked</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">What types of issues typically escape to production? <span class="req">*</span> <span class="qsub">(Select all that apply)</span></div><div class="opts"><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Billing calculation errors</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">SIM / eSIM activation failures</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Network provisioning failures</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">UI or front-end defects</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">API integration issues</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Performance or capacity issues</span></div><div class="opt" onclick="pickC(this)"><div class="cbox">✓</div><span class="otxt">Configuration errors</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">Rate your confidence that testing is an effective risk filter before production releases. <span class="req">*</span></div><div class="qhint">1 = Low — we expect issues after every release &middot; 5 = High — testing reliably prevents incidents</div><div class="rrow"><button class="rbtn" onclick="pickRt(this,'f5r3',1)">1</button><button class="rbtn" onclick="pickRt(this,'f5r3',2)">2</button><button class="rbtn" onclick="pickRt(this,'f5r3',3)">3</button><button class="rbtn" onclick="pickRt(this,'f5r3',4)">4</button><button class="rbtn" onclick="pickRt(this,'f5r3',5)">5</button><span class="rval" id="f5r3v"></span></div><div class="rlabels"><span class="rlabel">Very low</span><span class="rlabel">Very high</span></div></div>
+
+<div class="qcard"><div class="qtxt">Do you receive visibility into testing status before a release is deployed? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — I have access to a live testing dashboard</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Yes — I receive a go/no-go report before every release</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Partial — verbal update in a release meeting only</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">No — I find out about issues after deployment</span></div></div></div>
+
+<div class="qcard"><div class="qtxt">What is the single biggest quality risk you face in production today? <span class="req">*</span></div><div class="opts"><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Billing errors impacting customers</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Network or provisioning failures</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Performance degradation under peak load</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Security vulnerabilities</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Configuration drift between test and production</span></div><div class="opt" onclick="pickR(this)"><div class="rdot"><div class="rinner"></div></div><span class="otxt">Data integrity issues</span></div></div></div>
+
+<div class="subwrap"><button class="subbtn" onclick="submitted()" disabled>Submit</button><div class="submit-note" id="sub-note">Please answer all required questions to submit</div>
+    <div class="progbar"><div class="progfill" style="width:0%"></div></div><div class="progtxt">5 of 11 questions shown (representative sample)</div></div>
+</div></div>
+
+<script>
+var rlabels=['','Very Low','Low','Moderate','Good','Excellent'];
+
+// ── Apply client config on load ──────────────────────────────────────────────
+window.onload = function(){
+  var logo = document.getElementById('hdr-logo');
+  var name = document.getElementById('hdr-name');
+  var eng  = document.getElementById('hdr-eng');
+  if(logo) logo.textContent = CLIENT_LOGO;
+  if(name) name.textContent = CLIENT_NAME;
+  if(eng)  eng.textContent  = ENGAGEMENT;
+  // Also inject into landing page
+  var lsub = document.querySelector('.ll-s');
+  if(lsub) lsub.textContent = CLIENT_NAME + ' · ' + ENGAGEMENT;
+};
+
+// ── SCREEN NAVIGATION ────────────────────────────────────────────────────────
+var currentForm = null;
+
+function openForm(id){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('visible');});
+  document.getElementById('screen-'+id).classList.add('visible');
+  currentForm = id;
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateProgress(id);
+}
+
+function goBack(){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('visible');});
+  document.getElementById('screen-landing').classList.add('visible');
+  currentForm = null;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function submitted(){
+  alert('✅ Response submitted.\n\nThank you — our assessment team will review your input before your scheduled interview.');
+}
+
+// ── RADIO — one selection only, then auto-scroll ──────────────────────────────
+function pickR(el){
+  var container=el.closest('.opts');
+  container.querySelectorAll('.opt').forEach(function(o){o.classList.remove('sel');});
+  el.classList.add('sel');
+  var card = el.closest('.qcard');
+  if(card){ card.classList.add('answered-ok'); }
+  if(currentForm) updateProgress(currentForm);
+  setTimeout(function(){ autoScrollNext(el); }, 300);
+}
+
+// ── CHECKBOX — toggle, update progress ───────────────────────────────────────
+function pickC(el){
+  el.classList.toggle('chkd');
+  var card = el.closest('.qcard');
+  if(card){
+    var anyChecked = card.querySelectorAll('.opt.chkd').length > 0;
+    card.classList.toggle('answered-ok', anyChecked);
+  }
+  if(currentForm) updateProgress(currentForm);
+}
+
+// ── RATING ────────────────────────────────────────────────────────────────────
+function pickRt(btn,group,val){
+  var row=btn.closest('.rrow');
+  var btns=row.querySelectorAll('.rbtn');
+  btns.forEach(function(b,i){b.classList.toggle('on',i<val);});
+  var lbl=document.getElementById(group+'v');
+  if(lbl) lbl.textContent=val+'/5 — '+rlabels[val];
+  var card = btn.closest('.qcard');
+  if(card){ card.classList.add('answered-ok'); }
+  if(currentForm) updateProgress(currentForm);
+  setTimeout(function(){ autoScrollNext(btn); }, 300);
+}
+
+// ── PROGRESS TRACKING ─────────────────────────────────────────────────────────
+function updateProgress(fid){
+  var screen = document.getElementById('screen-'+fid);
+  if(!screen) return;
+
+  // Count required qcards (those with .opts or .rrow — exclude free text)
+  var allRequired = screen.querySelectorAll('.qcard');
+  var requiredCards = [];
+  allRequired.forEach(function(card){
+    // Only count cards that have interactive required elements
+    var hasOpts  = card.querySelector('.opts') !== null;
+    var hasRrow  = card.querySelector('.rrow') !== null;
+    var hasInput = card.querySelector('.ms-input') !== null;
+    // Free text (ms-ta) is optional — not counted
+    if(hasOpts || hasRrow || hasInput){ requiredCards.push(card); }
+  });
+
+  var total = requiredCards.length;
+  var done  = 0;
+  requiredCards.forEach(function(card){
+    if(card.classList.contains('answered-ok')){
+      done++;
+    } else {
+      // Check inputs
+      var inp = card.querySelector('.ms-input');
+      if(inp && inp.value.trim().length > 0){
+        card.classList.add('answered-ok');
+        done++;
+      }
+    }
+  });
+
+  var pct   = total > 0 ? Math.round((done/total)*100) : 0;
+  var left  = total - done;
+
+  // Update bar
+  var bar = document.getElementById(fid+'-prog-bar');
+  if(bar) bar.style.width = pct + '%';
+
+  var doneTxt = document.getElementById(fid+'-done-txt');
+  if(doneTxt) doneTxt.textContent = done + ' of ' + total + ' answered (' + pct + '%)';
+
+  var leftTxt = document.getElementById(fid+'-left-txt');
+  if(leftTxt) leftTxt.textContent = left > 0 ? left + ' remaining' : '✓ All done!';
+
+  // Enable / disable submit buttons in this form
+  var submitBtns = screen.querySelectorAll('.subbtn');
+  var notes = screen.querySelectorAll('.submit-note');
+  submitBtns.forEach(function(btn){
+    btn.disabled = (left > 0);
+  });
+  notes.forEach(function(note){
+    if(left > 0){
+      note.textContent = left + ' required question' + (left===1?'':'s') + ' still to answer';
+      note.classList.remove('ready');
+    } else {
+      note.textContent = '✓ All questions answered — ready to submit';
+      note.classList.add('ready');
+    }
+  });
+}
+
+// ── AUTO SCROLL TO NEXT UNANSWERED ───────────────────────────────────────────
+function autoScrollNext(el){
+  var screen = document.getElementById('screen-'+currentForm);
+  if(!screen) return;
+  var cards = Array.from(screen.querySelectorAll('.qcard'));
+  var currentCard = el.closest('.qcard');
+  var currentIdx  = cards.indexOf(currentCard);
+  // Find next unanswered card after current
+  for(var i = currentIdx+1; i < cards.length; i++){
+    var card = cards[i];
+    var hasOpts  = card.querySelector('.opts');
+    var hasRrow  = card.querySelector('.rrow');
+    var hasInput = card.querySelector('.ms-input');
+    if(hasOpts || hasRrow || hasInput){
+      if(!card.classList.contains('answered-ok')){
+        card.scrollIntoView({behavior:'smooth', block:'center'});
+        return;
+      }
+    }
+  }
+  // All answered — scroll to submit
+  var sub = screen.querySelector('.subwrap');
+  if(sub) sub.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+// Track number inputs too
+document.addEventListener('input', function(e){
+  if(e.target.classList.contains('ms-input')){
+    var card = e.target.closest('.qcard');
+    if(card){
+      if(e.target.value.trim().length > 0){
+        card.classList.add('answered-ok');
+      } else {
+        card.classList.remove('answered-ok');
+      }
+      if(currentForm) updateProgress(currentForm);
+    }
+  }
+});
+</script>
+
 </body>
+
 </html>
